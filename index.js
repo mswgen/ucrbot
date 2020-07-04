@@ -1,8 +1,15 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const dotenv = require('dotenv');
+const axios = require('axios').default;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
+const http = require('http');
+const server = http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end('hello world');
+});
+server.listen(3000);
 const fs = require('fs');
 const ascii = require('ascii-table');
 const ops = require('./config.json');
@@ -29,6 +36,9 @@ fs.readdir('./commands/', (err, list) => {
 });
 client.on('ready', () => {
     console.log(`Login ${client.user.username}\n------------------`);
+    setInterval(() => {
+        axios.get('https://ucrbot--mswgen.repl.co').then();
+    }, 600000);
 });
 client.on('message', message => {
     if (message.author.bot) return;

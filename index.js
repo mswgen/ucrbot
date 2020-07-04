@@ -77,4 +77,9 @@ client.on('guildMemberRemove', () => {
         client.channels.cache.find(x => x.type == 'voice' && x.name.startsWith('봇 수')).setName(`봇 수: ${message.guild.members.cache.filter(x => x.user.bot).size}`);
     }
 });
+client.on('guildCreate', guild => {
+    if (guild.id != '632536162770354186') {
+        guild.leave();
+    }
+})
 client.login(process.env.TOKEN);

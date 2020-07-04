@@ -1,0 +1,25 @@
+{
+  "name": "ucrbot",
+  "version": "1.0.0",
+  "description": "ucrbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mswgen/ucrbot.git"
+  },
+  "author": "mswgen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mswgen/ucrbot/issues"
+  },
+  "homepage": "https://github.com/mswgen/ucrbot#readme",
+  "dependencies": {
+    "discord.js": "12.2.0",
+    "dotenv": "8.2.0",
+    "util": "0.12.3"
+  }
+}

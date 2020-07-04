@@ -28,7 +28,7 @@ module.exports = {
                         data: {
                             name: '뮤트',
                             color: 0x000000,
-                            permissions: 0
+                            permissions: 66560
                         }
                     });
                 }
@@ -36,6 +36,7 @@ module.exports = {
                 embed.setTitle('멤버를 뮤트했어요')
                     .setColor("RANDOM");
                 m.edit(embed);
+                message.mentions.users.first().send(`${args.slice(2).join(' ')}의 이유로 ${message.guild.name}에서 뮤트되었어요.`)
             } else {
                 embed.setTitle('멤버 뮤트가 취소되었어요.')
                     .setColor('RANDOM');

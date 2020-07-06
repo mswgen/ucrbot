@@ -2,6 +2,9 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'counter',
     aliases: ['카운터'],
+    description: '서버의 유저 수 카운터를 만들어요.',
+    usage: 'u!counter',
+    permission: '서버 관리하기',
     run: async (client, message, args, ops) => {
         if (message.guild.channels.cache.find(x => x.type == 'category' && x.name == `${message.guild.name}의 유저 수`)) {
             message.guild.channels.cache.find(x => x.type == 'category' && x.name == `${message.guild.name}의 유저 수`).children.forEach(x => x.delete());

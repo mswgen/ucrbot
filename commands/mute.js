@@ -2,6 +2,9 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'mute',
     aliases: ['뮤트'],
+    description: '멤버를 뮤트해요.',
+    usage: 'u!mute <유저 멘션> [이유]',
+    permission: '서버 관리하기',
     run: async (client, message, args, ops) => {
         if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`서버 관리하기 권한이 필요해요.`);
         if (!message.mentions.users.first()) return message.channel.send('뮤트할 멤버를 멘션해주세요.');

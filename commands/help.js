@@ -2,15 +2,19 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'help',
     aliases: ['도움', '도움말'],
+    description: '봇의 도움말을 볼 수 있어요.',
+    usage: '모든 명령어 보기: u!help\n명령어 상세 정보 보기: u!help <명령어 이름>',
+    permission: '없음',
     run: async (client, message, args, ops) => {
         if (args[1]) {
             if (client.commands.get(args.slice(1).join(' '))) { 
                 const embed = new Discord.MessageEmbed()
                     .setTitle(client.commands.get(args.slice(1).join(' ')).name)
                     .setColor('RANDOM')
-                    .addField('Aliases', client.commands.get(args.slice(1).join(' ')).aliases.map(x => `\`${x}\``).join(', '))
-                    .addField('Description', client.commands.get(args.slice(1).join(' ')).description)
-                    .addField('Usage', client.commands.get(args.slice(1).join(' ')).usage)
+                    .addField('얼리어스 목록', client.commands.get(args.slice(1).join(' ')).aliases.map(x => `\`${x}\``).join(', '))
+                    .addField('설명', client.commands.get(args.slice(1).join(' ')).description)
+                    .addField('사용 방법', client.commands.get(args.slice(1).join(' ')).usage)
+                    .addField('필요한 권한', client.commands.get(args.slice(1).join(' ')).permission)
                     .setFooter(message.author.tag, message.author.avatarURL())
                     .setTimestamp();
                 message.channel.send(embed);

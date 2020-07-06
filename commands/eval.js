@@ -3,6 +3,9 @@ const util = require('util');
 module.exports = {
     name: 'eval', 
     aliases: ['eval', '실행', 'compile', '컴파일', 'evaluate', 'ㄷㅍ미', '채ㅡㅔㅑㅣㄷ', 'ㄷㅍ미ㅕㅁㅅㄷ'],
+    description: 'JavaScript 코드를 바로 실행해요.',
+    usage: 'u!eval <실행할 JavaScript 코드>',
+    permission: '봇 개발자',
     run: async (client, message, args, ops) => {
         message.delete();
         if (!ops.ownerId.includes(message.author.id)) return message.channel.send(`${client.user.username} 개발자만 가능해요.`);

@@ -2,6 +2,9 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'ban',
     aliases: ['차단', '밴'],
+    description: '멤버를 차단해요.',
+    usage: 'u!ban <유저 멘션> [차단 이유]',
+    permission: '서버 관리하기',
     run: async (client, message, args, ops) => {
         if (!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send(`멤버 차단하기 권한이 필요해요.`);
         if (!message.mentions.users.first()) return message.channel.send('차단할 멤버를 멘션해주세요.');

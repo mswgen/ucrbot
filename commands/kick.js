@@ -2,6 +2,9 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'kick',
     aliases: ['추방', '킥'],
+    description: '멤버를 추방해요.',
+    usage: 'u!kick <유저 멘션> [추방 이유]',
+    permission: '서버 관리하기',
     run: async (client, message, args, ops) => {
         if (!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send(`멤버 추방하기 권한이 필요해요.`);
         if (!message.mentions.users.first()) return message.channel.send('추방할 멤버를 멘션해주세요.');

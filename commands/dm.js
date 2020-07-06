@@ -2,6 +2,9 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'dm',
     aliases: ['전체디엠', '디엠'],
+    description: '서버에 있는 모든 멤버에게 DM을 보내요.',
+    usage: 'u!dm <보낼 내용>',
+    permission: '서버 관리하기',
     run: async (client, message, args, ops) => {
         if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`서버 관리하기 권한이 필요해요.`);
         if (!args[1]) return message.channel.send('보낼 내용을 입력해주세요.');

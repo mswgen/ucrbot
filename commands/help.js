@@ -15,7 +15,7 @@ module.exports = {
                     .addField('설명', client.commands.get(args.slice(1).join(' ')).description)
                     .addField('사용 방법', client.commands.get(args.slice(1).join(' ')).usage)
                     .addField('필요한 권한', client.commands.get(args.slice(1).join(' ')).permission)
-                    .setFooter(message.author.tag, message.author.avatarURL())
+                    .setFooter(`사용 방법에서 <>안은 필수, []안은 선택이에요. | ${message.author.tag}`, message.author.avatarURL())
                     .setTimestamp();
                 message.channel.send(embed);
             } else {

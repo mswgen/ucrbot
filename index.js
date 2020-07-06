@@ -39,6 +39,16 @@ client.on('ready', () => {
     setInterval(() => {
         axios.get('https://ucrbot--mswgen.repl.co').then();
     }, 600000);
+    let games = [`${client.users.cache.size}명의 유저`, `${client.guilds.cache.size}개의 서버`, `${ops.prefix}help 입력`]
+    setInterval(() => {
+        client.user.setPresence({
+            status: 'online',
+            activity: {
+                name: games[Math.floor(Math.random() * games.length)],
+                type: 'PLAYING'
+            }
+        });
+    }, 5000);
 });
 client.on('message', message => {
     if (message.author.bot) return;
@@ -81,5 +91,8 @@ client.on('guildCreate', guild => {
     if (guild.id != '632536162770354186') {
         guild.leave();
     }
-})
+});
+client.on('guildUpdate', (_old, _new) => {
+    client.user.setAvatar(_new.iconURL());
+});
 client.login(process.env.TOKEN);

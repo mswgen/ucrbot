@@ -37,7 +37,7 @@ fs.readdir('./commands/', (err, list) => {
 client.on('ready', () => {
     console.log(`Login ${client.user.username}\n------------------`);
     setInterval(() => {
-        axios.get('https://ucrbot--mswgen.repl.co').then();
+        axios.get('https://ucr1.ga').then();
     }, 600000);
     let games = [`${client.users.cache.size}명의 유저`, `${client.guilds.cache.size}개의 서버`, `${ops.prefix}help 입력`]
     setInterval(() => {

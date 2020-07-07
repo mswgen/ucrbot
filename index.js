@@ -92,7 +92,10 @@ client.on('guildCreate', guild => {
         guild.leave();
     }
 });
-client.on('guildUpdate', (_old, _new) => {
+client.on('guildUpdate', (old, _new) => {
     client.user.setAvatar(_new.iconURL());
+    if (_new.channels.cache.find(x => x.type == 'category' && x.name == `${old.name}의 유저 수`)) {
+        _new.channels.cache.find(x => x.type == 'category' && x.name == `${old.name}의 유저 수`).setName(`${_new.name}의 유저 수`);
+    }
 });
 client.login(process.env.TOKEN);

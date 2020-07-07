@@ -23,7 +23,7 @@ const url = require('url');
 
 ${input}`;
         const embed = new Discord.MessageEmbed()
-            .setTitle(`${client.emojis.cache.find(x => x.name == 'loadingCirclebar')} Evaling...`)
+            .setTitle(`Evaling...`)
             .setColor(0xffff00)
             .addField('Input', '```js\n' + args.slice(1).join(' ') + '\n```')
             .setFooter(message.author.tag, message.author.avatarURL({
